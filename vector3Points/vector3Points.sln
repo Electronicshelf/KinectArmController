@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vector3Points", "vector3Points\vector3Points.csproj", "{840BBDC2-14ED-4C08-BE6A-B91720C25169}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{840BBDC2-14ED-4C08-BE6A-B91720C25169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840BBDC2-14ED-4C08-BE6A-B91720C25169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840BBDC2-14ED-4C08-BE6A-B91720C25169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{840BBDC2-14ED-4C08-BE6A-B91720C25169}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

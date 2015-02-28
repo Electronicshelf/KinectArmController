@@ -1,0 +1,26 @@
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.exe.config
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.csprojResolveAssemblyReference.cache
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\MainWindow.baml
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\MainWindow.g.cs
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\App.g.cs
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse_MarkupCompile.cache
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.g.resources
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.Properties.Resources.resources
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.csproj.GenerateResource.Cache
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.exe
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.pdb
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.exe
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.pdb
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.exe.config
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.exe
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.pdb
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.csprojResolveAssemblyReference.cache
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\MainWindow.baml
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\MainWindow.g.cs
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\App.g.cs
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse_MarkupCompile.cache
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.g.resources
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.Properties.Resources.resources
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\obj\Debug\kinectEllipse.csproj.GenerateResource.Cache
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.exe
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\kinectEllipse\kinectEllipse\bin\Debug\kinectEllipse.pdb

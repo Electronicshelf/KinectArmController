@@ -1,0 +1,15 @@
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.exe.config
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.exe
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.pdb
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.csprojResolveAssemblyReference.cache
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.exe
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.pdb
+D:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.exe.config
+D:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.exe
+D:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.pdb
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.exe.config
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.exe
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.pdb
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.exe
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\bin\Debug\HCIkinect.pdb
+I:\E DATA\C\Documents\Visual Studio 2012\Projects\KinectControlHCI\HCIkinect\HCIkinect\obj\Debug\HCIkinect.csprojResolveAssemblyReference.cache

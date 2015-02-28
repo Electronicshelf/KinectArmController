@@ -1,0 +1,1 @@
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\vector3Points\vector3Points\bin\Debug\vector3Points.exe.config

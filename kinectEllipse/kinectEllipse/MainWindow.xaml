@@ -1,0 +1,20 @@
+﻿<Window x:Class="kinectEllipse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="MainWindow" Height="845" Width="1428" Loaded="Window_Loaded">
+    <Grid>
+        <Image Height="773" HorizontalAlignment="Left" Margin="12,12,0,0" Name="image" Stretch="Fill" VerticalAlignment="Top" Width="1058" />
+        <Button Content="Camera up" Height="113" HorizontalAlignment="Left" Margin="1186,39,0,0" Name="CamUpButton" VerticalAlignment="Top" Width="174" Click="CamUpButton_Click" />
+        <Button Content="Camera down" Height="124" HorizontalAlignment="Left" Margin="1186,169,0,0" Name="CamDownButton" VerticalAlignment="Top" Width="174" Click="CamDownButton_Click" />
+        <StackPanel Height="132" HorizontalAlignment="Left" Margin="1186,389,0,0" Name="stackPanel1" VerticalAlignment="Top" Width="163">
+            <StackPanel.BindingGroup>
+                <BindingGroup Name="ImageToShowGroup" SharesProposedValues="True" />
+            </StackPanel.BindingGroup>
+            <RadioButton Content="Color" Height="20" Name="ColorRadioButton" Margin="3" FontSize="14" IsChecked="True" HorizontalAlignment="Left" Checked="ColorRadioButton_Checked" />
+            <RadioButton Content="Depth" Height="22" Name="DepthRadioButton" Margin="3" FontSize="14" Width="91" HorizontalAlignment="Left" Checked="DepthRadioButton_Checked" />
+            <RadioButton Content="None" FontSize="14" Height="24" Name="NoneRadioButton" Width="91" HorizontalAlignment="Left" Checked="NoneRadioButton_Checked" />
+        </StackPanel>
+        <Canvas Height="773" HorizontalAlignment="Left" Margin="12,12,0,0" Name="canvas" VerticalAlignment="Top" Width="1058">
+        </Canvas>
+    </Grid>
+</Window>

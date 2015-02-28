@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GestureRecognizer.GestureEventArgs">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GestureEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestureRecognizer.GestureRecognitionEngine">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAQACAABAAABAKgAAAEAAACAAoEAAAEAABIIAA=</HashCode>
+      <FileName>GestureRecognitionEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GestureRecognizer.Vector3">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAYAUAAABACQAEAAAAAAAAAAAAYAE=</HashCode>
+      <FileName>Vector3.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="GestureRecognizer.GestureType">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>GestureType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GestureRecognizer.RecognitionResult">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAABA=</HashCode>
+      <FileName>RecognitionResult.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
