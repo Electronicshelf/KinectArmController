@@ -141,15 +141,27 @@ namespace ClappingHands
          }
 
          DateTime time = DateTime.Now;
+         int count= 0;
          void recognitionEngine_GestureRecognized(object sender, GestureEventArgs e)
-         { 
-             //armEngine.setArm(raMove,port,servoId);   
-             // MessageBox.Show("HI");
-             MessageBox.Show(time.Millisecond.ToString());
-            
+         {
+            wait(3);
+             clapShow();
+             
          }
-                
-            
+         
+         void clapShow() 
+          {
+
+           count += 1;
+            if (count == 1)
+            {
+                MessageBox.Show("Gesture Capture Within >> " + time.Millisecond.ToString()  +   " milli Seconds");
+                   
+            }
+            count = 0 ; 
+            } 
+  
+
         private void Window_Closed(object sender, EventArgs e)
         {
             kinect.Stop();

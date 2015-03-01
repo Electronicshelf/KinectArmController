@@ -46,7 +46,7 @@ namespace GestureRecognizer
         {
             return new Vector3(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
-
+        
         public static Vector3 operator *(Vector3 left, float value)
         {
             return new Vector3(left.X * value, left.Y * value, left.Z * value);

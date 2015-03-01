@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 using Microsoft.Kinect;
 using System.IO.Ports;
@@ -26,7 +27,7 @@ namespace GestureRecognizer
         public Skeleton skeleton;
      
        
-  
+    
 
           //write value of joints to texbox  
         void wait(int a) { for (int v = 0; v < a; a++);}
@@ -96,7 +97,7 @@ namespace GestureRecognizer
 
         void count()
         {
-            for (int e = 0; e < 200; e++) ;
+            for (int e = 0; e < 50; e++) ;
                // Console.WriteLine(e);
         }
 
@@ -111,9 +112,12 @@ namespace GestureRecognizer
     void reset()
     {
         previousDistance = 0.0f;
-        currentDistance = 0.0f;
+        currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]) + 1f; 
 
     }
+
+      
+       
         private void MatchClappingGesture(Skeleton skeleton)
         {
            
@@ -122,39 +126,39 @@ namespace GestureRecognizer
                 return;
             }
 
-            if (skeleton.Joints[JointType.WristRight].TrackingState == JointTrackingState.Tracked && skeleton.Joints[JointType.WristLeft].TrackingState == JointTrackingState.Tracked)
+            if (skeleton.Joints[JointType.HandRight].TrackingState == JointTrackingState.Tracked && skeleton.Joints[JointType.HandLeft].TrackingState == JointTrackingState.Tracked)
             {
 
-               currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]);
+               currentDistance = GetJointDistance(skeleton.Joints[JointType.HandRight], skeleton.Joints[JointType.HandLeft]);
                 {
 
 
                     if (currentDistance < 0.1f && previousDistance > 0.1f)
                     {
-                        int triggerTime = DateTime.Now.Millisecond ;
+                        //long triggerTime = DateTime.Now.Millisecond ;
                        if (this.GestureRecognized != null)
                         {
                             this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Success));
-                          
-                        }
-                       count();
-
-                       int claptTime = DateTime.Now.Millisecond;
-                        if ( claptTime > triggerTime + 100 )
-                        {
-                           GestureRecognized = null;
-                           //this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Failed));
-                            reset();
                             
                         }
-                        
+                      // count();
+
+                     //  long claptTime = DateTime.Now.Millisecond;
+                     //   if ( claptTime > triggerTime )
+                     //   {
+                     //      GestureRecognized = null;
+                     //      //this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Failed));
+                     //      // reset();
+                     //       
+                     //   }
+                      
                     }
                    
                     previousDistance = currentDistance;
 
                 }
 
-                currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]);
+                
             }
             
         }
