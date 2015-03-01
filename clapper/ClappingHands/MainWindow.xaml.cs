@@ -146,7 +146,7 @@ namespace ClappingHands
              //armEngine.setArm(raMove,port,servoId);   
              // MessageBox.Show("HI");
              MessageBox.Show(time.Millisecond.ToString());
-             time = DateTime.Now;
+            
          }
                 
             

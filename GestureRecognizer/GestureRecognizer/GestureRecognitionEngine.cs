@@ -96,16 +96,24 @@ namespace GestureRecognizer
 
         void count()
         {
-            for (int e = 0; e < 61; e++)
-                Console.WriteLine(e);
+            for (int e = 0; e < 1000; e++) ;
+               // Console.WriteLine(e);
         }
 
 
-
+        
 
         float previousDistance = 0.0f;
-        DateTime previousDate = DateTime.Now;
-        DateTime finalDate;
+        float currentDistance = 0.0f;
+       
+       // DateTime finalDate;
+    //float delay = 0;
+    void reset()
+    {
+        previousDistance = 0.0f;
+        currentDistance = 0.0f;
+
+    }
         private void MatchClappingGesture(Skeleton skeleton)
         {
            
@@ -117,42 +125,40 @@ namespace GestureRecognizer
             if (skeleton.Joints[JointType.WristRight].TrackingState == JointTrackingState.Tracked && skeleton.Joints[JointType.WristLeft].TrackingState == JointTrackingState.Tracked)
             {
 
-                float currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]);
+               currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]);
                 {
 
 
-                    if (currentDistance < 0.1f && previousDistance > 0.1f )
+                    if (currentDistance < 0.1f && previousDistance > 0.1f)
                     {
-
+                        DateTime triggerTime = DateTime.Now ;
                        if (this.GestureRecognized != null)
                         {
-                    
                             this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Success));
-                            previousDate = DateTime.Now;
-                       }
+                          
+                        }
+                       count();
                        
+                        
+                        if (DateTime.Now.Subtract(triggerTime).TotalMilliseconds > 300 )
+                        {
+                           // GestureRecognized = null;
+                            reset();
+                            
+                        }
+                        
                     }
+                   
                     previousDistance = currentDistance;
-                    //previousDate = DateTime.Now;  
-
-                    finalDate = DateTime.Now;
-
-                    if (finalDate.Millisecond > previousDate.Millisecond + 400)
-                    {
-                        this.GestureRecognized = null;
-                        this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Failed));
-                    }
-
 
                 }
 
-              
+                currentDistance = GetJointDistance(skeleton.Joints[JointType.WristRight], skeleton.Joints[JointType.WristLeft]);
             }
-           
+            
         }
-
-
        
+        
         float armInitialPoint = 0.1f;
         float armFinalPoint;
            private void armControl (Skeleton skeleton) 
