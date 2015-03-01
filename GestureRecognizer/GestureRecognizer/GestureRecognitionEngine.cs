@@ -96,7 +96,7 @@ namespace GestureRecognizer
 
         void count()
         {
-            for (int e = 0; e < 1000; e++) ;
+            for (int e = 0; e < 200; e++) ;
                // Console.WriteLine(e);
         }
 
@@ -131,18 +131,19 @@ namespace GestureRecognizer
 
                     if (currentDistance < 0.1f && previousDistance > 0.1f)
                     {
-                        DateTime triggerTime = DateTime.Now ;
+                        int triggerTime = DateTime.Now.Millisecond ;
                        if (this.GestureRecognized != null)
                         {
                             this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Success));
                           
                         }
                        count();
-                       
-                        
-                        if (DateTime.Now.Subtract(triggerTime).TotalMilliseconds > 300 )
+
+                       int claptTime = DateTime.Now.Millisecond;
+                        if ( claptTime > triggerTime + 100 )
                         {
-                           // GestureRecognized = null;
+                           GestureRecognized = null;
+                           //this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Failed));
                             reset();
                             
                         }
