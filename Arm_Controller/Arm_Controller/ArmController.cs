@@ -12,7 +12,8 @@ namespace Arm_Controller
 {
   public  class ArmControllerEngine
     {
-
+      InvKin_DH_2 invkin_DH = new InvKin_DH_2();
+     
       public ArmControllerEngine()
       {
       }
@@ -37,8 +38,13 @@ namespace Arm_Controller
           return AngleTiter;
       }
 
+      public double[] anglesINV_DH(double x, double y , double z)
+      {
 
+          return invkin_DH.calcIK(x,y,z);
+      }
       
+
       void count(int a)
       {
           for (int e = 0; e < a; e++) ; 
@@ -142,7 +148,7 @@ namespace Arm_Controller
             // System.out.printf("swAngles: %.2f, %.2f)\n",  Math.toDegrees(swAngle1), Math.toDegrees(swAngle2));
            
 
-            double shoulderAngle = 30 - (swAngle1 + swAngle2);
+            double shoulderAngle = 30.0 - (swAngle1 + swAngle2);
             double shldr = (swAngle1 + swAngle2);
             
             // elbow angle 

@@ -1,6 +1,5 @@
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\bin\Debug\consoleInverseKinematics.exe.config
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\bin\Debug\consoleInverseKinematics.exe
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\bin\Debug\consoleInverseKinematics.pdb
-C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\obj\Debug\consoleInverseKinematics.csprojResolveAssemblyReference.cache
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\obj\Debug\consoleInverseKinematics.exe
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\consoleInverseKinematics\consoleInverseKinematics\obj\Debug\consoleInverseKinematics.pdb

@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="ArmController.cs" />
     <Compile Include="forwardKin.cs" />
-    <Compile Include="inverseKinematics.cs" />
+    <Compile Include="inKinGeometry_ 1.cs" />
+    <Compile Include="InvKin_DH_2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

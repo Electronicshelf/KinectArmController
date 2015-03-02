@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Arm_Controller.ArmControllerEngine">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>QAACwAAACAAAAAACBAAAAAAAAABAAAAgACAAAAAAAAA=</HashCode>
       <FileName>ArmController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Arm_Controller.forwardKin">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>forwardKin.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Arm_Controller.inverseKinematics">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+  <Class Name="Arm_Controller.inKinGeometry_1">
+    <Position X="1.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>QAAAwAAACAAAAAAAAAAAAAAAAABAAAAgACAAAAAAAAA=</HashCode>
-      <FileName>inverseKinematics.cs</FileName>
+      <FileName>inKinGeometry_ 1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

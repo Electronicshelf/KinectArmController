@@ -135,7 +135,7 @@ namespace ClappingHands
              double y1 = cord3d[2];
              double z1 = cord3d[1];
              double[] newRamove = armEngine.calcIK(x1, y1, z1);
-
+           // double[] newRamove = armEngine.anglesINV_DH(x1, y1, z1);
              raMove = newRamove; 
              return raMove;
          }
@@ -155,7 +155,7 @@ namespace ClappingHands
            count += 1;
             if (count == 1)
             {
-                MessageBox.Show("Gesture Capture Within >> " + time.Millisecond.ToString()  +   " milli Seconds");
+                MessageBox.Show(string.Format(" X = {0:0.0}  Y= {1:0.0}   Z = {2:0.0} ", cord3d[0],  cord3d[1], cord3d[2]));
                    
             }
             count = 0 ; 
@@ -223,6 +223,24 @@ namespace ClappingHands
                 
             }
         }
+
+        private void elevationAngle(int angleChange) 
+        {
+
+            if (angleChange > kinect.MinElevationAngle || angleChange < kinect.MaxElevationAngle) 
+            {
+            
+              this.kinect.ElevationAngle = angleChange;
+            
+            }
+        
+        
+        }
+        private void Slider_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            this.elevationAngle(Int32.Parse(e.NewValue.ToString()));
+        }
+
         }
 
           
