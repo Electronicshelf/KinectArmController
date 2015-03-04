@@ -116,14 +116,19 @@ namespace kinectEllipse
                         this.allSkeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     }
                     skeletonFrame.CopySkeletonDataTo(this.allSkeletons);
-                }
+                } canvas.Children.Clear();
                                
                foreach (Skeleton sd in allSkeletons)
                {
+                   //canvas.Children.Clear();
                
-                    if (sd.TrackingState == SkeletonTrackingState.Tracked)
-                    {
-                drawSkeleton(sd,canvas,Colors.Green);
+                    //if (sd.TrackingState == SkeletonTrackingState.Tracked)
+                    //{
+                        if (sd == null)
+                        { return; }
+                     
+                
+                   drawSkeleton(sd,canvas,Colors.Green);
                    //     Joint LeftHand = sd.Joints[JointType.HandLeft];
                    //     Joint RightHand = sd.Joints[JointType.HandRight];
                    //
@@ -142,11 +147,12 @@ namespace kinectEllipse
                    //             plotOnColorImage(LeftHand, ColorImageFormat.RgbResolution1280x960Fps12, leftEllipse, canvas);
                    //             
                    //         }
-                   //     }
-                  }
+                   //   }
+                //  }
+
                }
 
-
+               
             }
             finally
             {

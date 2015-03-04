@@ -9,6 +9,10 @@ namespace GestureRecognizer
     public enum GestureType
     {
         HandClapping,
-        TrackArm
+        TrackArm,
+        SwipeToRight,
+        SwipeToLeft,
+        ZoomIn,
+        ZoomOut
     }
 }

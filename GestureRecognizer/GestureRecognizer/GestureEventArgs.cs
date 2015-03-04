@@ -16,10 +16,12 @@ namespace GestureRecognizer
                 internal set;
 
             }
+            public GestureType GestureType { get; internal set; }
 
-            public GestureEventArgs(RecognitionResult result)
+            public GestureEventArgs(RecognitionResult result, GestureType type)
             {
                 this.Result = result;
+                this.GestureType = type;
             }
 
         }    

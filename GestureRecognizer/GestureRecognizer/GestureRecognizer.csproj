@@ -43,12 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestureBase.cs" />
     <Compile Include="GestureEventArgs.cs" />
+    <Compile Include="equationBox.cs" />
     <Compile Include="GestureRecognitionEngine.cs" />
     <Compile Include="GestureType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecognitionResult.cs" />
+    <Compile Include="SwipeToLeftGesture.cs" />
+    <Compile Include="SwipeToRightGesture.cs" />
     <Compile Include="Vector3.cs" />
+    <Compile Include="ZoomInGesture.cs" />
+    <Compile Include="ZoomOutGesture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GestureEngine.cd" />
