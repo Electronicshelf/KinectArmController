@@ -19,14 +19,14 @@ namespace GestureRecognizer
        public bool IsGestureDetected { get; set; }
 
        public List<GestureBase> gestureCollection = null;
-
-        public GestureRecognitionEngine()
-    {
-      InitilizeGesture();
-    }
+       
+       public GestureRecognitionEngine()
+       {
+           this.InitilizeGesture();
+       }
 
         public void InitilizeGesture()
-        {
+       {
             this.gestureCollection = new List<GestureBase>();
             this.gestureCollection.Add(new ZoomInGesture());
             this.gestureCollection.Add(new ZoomOutGesture());
@@ -40,26 +40,19 @@ namespace GestureRecognizer
         public event EventHandler<GestureEventArgs>GestureRecognized;
       //public event EventHandler<GestureEventArgs>GestureNotRecognized;
         public GestureType  GestureType { get; set; }
-        public Skeleton Skeleton;
+        public Skeleton Skeleton { get; set; }
 
 
-      
 
-       
 
-      
 
-     
+
+                    
+
+
         public void StartRecognise()
         {
-            switch (GestureType)
-            {
-                case GestureType.HandClapping:
-                    this.MatchClappingGesture(this.Skeleton);
-                    break;
-                default:
-                    break;
-            }
+
            
             if (this.IsGestureDetected)
             {
@@ -83,9 +76,17 @@ namespace GestureRecognizer
 
                 }
             }
-           
+           // switch (GestureType)
+           // { 
+           //     case GestureType.SwipeToLeft:
+           //         this.check();
+           //         break;
+           //     default:
+           //         break;
+           // }
+
         }
-           
+        
                    private void RestGesture()
                    {
                        this.gestureCollection = null;
@@ -94,44 +95,44 @@ namespace GestureRecognizer
                        this.IsGestureDetected = false;
                    }
            
-                   float previousDistance = 0.0f;
+                  // float previousDistance = 0.0f;
                   
-                   private void MatchClappingGesture(Skeleton skeleton)
-                   {
-                      
-                       if (skeleton == null)
-                       {
-                           return;
-                       }
-           
-                       if (skeleton.Joints[JointType.HandRight].TrackingState == JointTrackingState.Tracked &&
-                           skeleton.Joints[JointType.HandLeft].TrackingState == JointTrackingState.Tracked)
-                       {
-           
-                        float  currentDistance = equationBox.GetJointDistance(skeleton.Joints[JointType.HandRight], skeleton.Joints[JointType.HandLeft]);
-                           {
-           
-           
-                               if (currentDistance < 0.1f && previousDistance > 0.1f)
-                               {
-                                   
-                                  if (this.GestureRecognized != null)
-                                   {
-                                       this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Success, GestureType.HandClapping));
-                                       
-                                   }
-                                
-                                 
-                               }
-                              
-                               previousDistance = currentDistance;
-           
-                           }
-           
-                           
-                       }
-                       
-                   }
+           //        private void MatchClappingGesture(Skeleton skeleton)
+           //        {
+           //           
+           //            if (skeleton == null)
+           //            {
+           //                return;
+           //            }
+           //
+           //            if (skeleton.Joints[JointType.HandRight].TrackingState == JointTrackingState.Tracked &&
+           //                skeleton.Joints[JointType.HandLeft].TrackingState == JointTrackingState.Tracked)
+           //            {
+           //
+           //             float  currentDistance = equationBox.GetJointDistance(skeleton.Joints[JointType.HandRight], skeleton.Joints[JointType.HandLeft]);
+           //                {
+           //
+           //
+           //                    if (currentDistance < 0.1f && previousDistance > 0.1f)
+           //                    {
+           //                        
+           //                       if (this.GestureRecognized != null)
+           //                        {
+           //                            this.GestureRecognized(this, new GestureEventArgs(RecognitionResult.Success, GestureType.HandClapping));
+           //                            
+           //                        }
+           //                     
+           //                      
+           //                    }
+           //                   
+           //                    previousDistance = currentDistance;
+           //
+           //                }
+           //
+           //                
+           //            }
+           //            
+           //        }
                    
         
        

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClappingHands", "ClappingHands\ClappingHands.csproj", "{EA3DB208-1A36-4759-A31E-646F8E88AA58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestureRecognizer", "..\GestureRecognizer\GestureRecognizer\GestureRecognizer.csproj", "{7E6016B3-F0C6-4842-A648-FFDBF36FB81D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{EA3DB208-1A36-4759-A31E-646F8E88AA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA3DB208-1A36-4759-A31E-646F8E88AA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA3DB208-1A36-4759-A31E-646F8E88AA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6016B3-F0C6-4842-A648-FFDBF36FB81D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6016B3-F0C6-4842-A648-FFDBF36FB81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6016B3-F0C6-4842-A648-FFDBF36FB81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6016B3-F0C6-4842-A648-FFDBF36FB81D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

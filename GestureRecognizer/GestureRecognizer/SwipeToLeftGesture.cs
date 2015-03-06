@@ -12,6 +12,8 @@ namespace GestureRecognizer
     /// </summary>
     public class SwipeToLeftGesture : GestureBase
     {
+        public SwipeToLeftGesture() : base(GestureType.SwipeToLeft) { }
+
         private SkeletonPoint validatePosition;
         private SkeletonPoint startingPostion;
         private float shoulderDiff;
@@ -19,15 +21,15 @@ namespace GestureRecognizer
         /// <summary>
         /// Initializes a new instance of the <see cref="SwipeToLeftGesture" /> class.
         /// </summary>
-        public SwipeToLeftGesture() : base(GestureType.SwipeToLeft) { }
-
+       
 
         /// <summary>
         /// Validates the gesture start condition.
         /// </summary>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        protected override bool ValidateGestureStartCondition(Skeleton skeleton)
+        protected override bool 
+            ValidateGestureStartCondition(Skeleton skeleton)
         {
             var handRightPoisition = skeleton.Joints[JointType.HandRight].Position;
             var handLeftPosition = skeleton.Joints[JointType.HandLeft].Position;
@@ -68,7 +70,8 @@ namespace GestureRecognizer
         /// </summary>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        protected override bool ValidateGestureEndCondition(Skeleton skeleton)
+        protected override bool
+            ValidateGestureEndCondition(Skeleton skeleton)
         {
             double distance = Math.Abs(startingPostion.X - validatePosition.X);
             float currentshoulderDiff = equationBox.GetJointDistance(skeleton.Joints[JointType.HandRight], skeleton.Joints[JointType.ShoulderLeft]);
@@ -85,7 +88,8 @@ namespace GestureRecognizer
         /// </summary>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        protected override bool ValidateBaseCondition(Skeleton skeleton)
+        protected override bool
+            ValidateBaseCondition(Skeleton skeleton)
         {
             var handRightPoisition = skeleton.Joints[JointType.HandRight].Position;
             var handLeftPosition = skeleton.Joints[JointType.HandLeft].Position;
