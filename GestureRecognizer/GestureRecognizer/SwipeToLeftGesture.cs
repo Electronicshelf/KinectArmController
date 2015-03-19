@@ -28,13 +28,13 @@ namespace GestureRecognizer
         /// </summary>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        protected override bool 
-            ValidateGestureStartCondition(Skeleton skeleton)
+        protected override bool  ValidateGestureStartCondition(Skeleton skeleton)
         {
             var handRightPoisition = skeleton.Joints[JointType.HandRight].Position;
             var handLeftPosition = skeleton.Joints[JointType.HandLeft].Position;
             var shoulderRightPosition = skeleton.Joints[JointType.ShoulderRight].Position;
             var spinePosition = skeleton.Joints[JointType.Spine].Position;
+           
             if ((handRightPoisition.Y < shoulderRightPosition.Y) &&
                  (handRightPoisition.Y > skeleton.Joints[JointType.ElbowRight].Position.Y) && handLeftPosition.Y < spinePosition.Y)
             {
@@ -58,6 +58,8 @@ namespace GestureRecognizer
         {
             var currentHandRightPoisition = skeletonData.Joints[JointType.HandRight].Position;
             if (validatePosition.X < currentHandRightPoisition.X)
+                //currentRightHandPosition is reducing , going towards the left direction...
+                //it should be always less than the validate position
             {
                 return false;
             }
@@ -88,8 +90,7 @@ namespace GestureRecognizer
         /// </summary>
         /// <param name="skeleton">The skeleton.</param>
         /// <returns></returns>
-        protected override bool
-            ValidateBaseCondition(Skeleton skeleton)
+        protected override bool ValidateBaseCondition(Skeleton skeleton)
         {
             var handRightPoisition = skeleton.Joints[JointType.HandRight].Position;
             var handLeftPosition = skeleton.Joints[JointType.HandLeft].Position;

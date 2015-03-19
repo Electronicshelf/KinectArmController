@@ -38,25 +38,28 @@ namespace ClappingHands
         private KinectSensor sensor;
         private const int skeletonCount = 6;
         private Skeleton[] allSkeletons = new Skeleton[skeletonCount];
-        double[] raMove = new double[6] { 7, 160, 80, 250, 165, 160 };
+        double[] raMove = new double[6] { 7, 75, 160, 250, 165, 160 };
         string[] servoId = new string[6] { "INIT", "BASE", "SHLD", "ELBW", "WRST", "GRPR" };
         ArmControllerEngine armEngine;
         equationBox equation;
        // private CoordinateMapper myMapper;
-        double[] cord3d;
+        double[] cord3d  = new double[3];
         
         
         public MainWindow()
         
-        {
-            
+        {     
             InitializeComponent();
-           //Loaded += new RoutedEventHandler(Window_Loaded);
-            
-             
+           //Loaded += new RoutedEventHandler(Window_Loaded);          
         }
 
-
+        public void readFile(double a)
+        {
+            string Filename = "baseAngle.txt";
+            TextReader fileRead = new StreamReader(Filename);
+            a = double.Parse( fileRead.ReadLine());
+            fileRead.Close();
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -66,15 +69,17 @@ namespace ClappingHands
             this.sensor.SkeletonStream.Enable();
             this.sensor.DepthStream.Enable();
             this.sensor.ColorStream.Enable();
-     
-           
+
+            armEngine = new ArmControllerEngine();
             this.sensor.AllFramesReady += new EventHandler<AllFramesReadyEventArgs>(Kinect_SkeletonAllFramesReady);
             recognitionEngine = new GestureRecognitionEngine();
-
+            //readFile(raMove[1]);
             equation = new equationBox();
-            armEngine = new ArmControllerEngine();
+            armEngine.setArm(raMove, port, servoId);
             recognitionEngine.GestureRecognized += new EventHandler<GestureEventArgs>(recognitionEngine_GestureRecognized);
             this.sensor.Start();
+            
+           
         }
          
         void wait(int a) 
@@ -107,9 +112,9 @@ namespace ClappingHands
                  {
                      a = 5;
                  }
-                
-                 cord3d = equation.HandXYZ(skel, a);
+                                 cord3d = equation.HandXYZ(skel, a);
                  xAxes.Text = string.Format(" {0:0.0} ", cord3d[0]); yAxes.Text = string.Format(" {0:0.0} ", cord3d[1]); zAxes.Text = string.Format(" {0:0.0} ", cord3d[2]);
+                 double[] raMove = armEngine.anglesINV_G(cord3d[0], cord3d[2], cord3d[1]);
                  iValue.Text = string.Format("{0:0} ", raMove[0]); bValue.Text = string.Format("{0:0} ", raMove[1]); sValue.Text = string.Format("{0:0} ", raMove[2]);
                  eValue.Text = string.Format("{0:0} ", raMove[3]); wValue.Text = string.Format("{0:0} ", raMove[4]); gValue.Text = string.Format("{0:0} ", raMove[5]);
                  double BaseValue = CheckAngle(raMove[1]);
@@ -118,42 +123,60 @@ namespace ClappingHands
              return cord3d;
          }
                
-         public double[] findAngles()
-         {
-             //wait(200);
-             
-             //Note the Z-axis of the kinect is represented as the Y-axis on the RA01 Robotic Arm
-             double x1 = cord3d[0];
-             double y1 = cord3d[2];
-             double z1 = cord3d[1];
-             double[] newRamove = armEngine.calcIK(x1, y1, z1);
-           // double[] newRamove = armEngine.anglesINV_DH(x1, y1, z1);
-             raMove = newRamove; 
-             return raMove;
-         }
+      //   public double[] findAngles()
+      //   {
+      //       //wait(200);
+      //       
+      //       //Note the Z-axis of the kinect is represented as the Y-axis on the RA01 Robotic Arm
+      //       double x1 = cord3d[0];
+      //       double y1 = cord3d[2];
+      //       double z1 = cord3d[1];
+      //      
+      //       return raMove;
+      //   }
 
          
-         int count= 0;
+        // int count= 0;
         
         void recognitionEngine_GestureRecognized(object sender, GestureEventArgs e)
          {
+
+             switch (e.GestureType) 
+             {
+                 case   (GestureType.SwipeToLeft):
+                     this.armEngine.baseDynamicLeft(raMove, port, servoId);
+                     break;
+                 case (GestureType.SwipeToRight):
+                     this.armEngine.baseDynamicRight(raMove, port, servoId);
+                     break;
+                 case (GestureType.ArmTriggerRight):
+                     MessageBox.Show("ArmTriggered");
+                     break;
+                 default:
+                     //this.armEngine.setArm(raMove, port, servoId);
+                     break;
+             }
+
+            gestureList.Items.Add(e.GestureType.ToString());
              
-             wait(3);
-             if (e.GestureType == GestureType.SwipeToRight) { clapShow(); }
-             else
-                 MessageBox.Show(e.GestureType.ToString());
+            //wait(3);
+           // clapShow(); 
+        //   if (e.GestureType == GestureType.SwipeToLeft) { clapShow(); }
+        // else
+        //        MessageBox.Show(e.GestureType.ToString());
          }
        
          void clapShow() 
           {
-      
-           count += 1;
-            if (count == 1)
-            {
-                MessageBox.Show(string.Format(" X = {0:0.0}  Y= {1:0.0}   Z = {2:0.0} ", cord3d[0],  cord3d[1], cord3d[2]));
-                   
-            }
-            count = 0 ; 
+             // armEngine.setArm(raMove, port, servoId);
+           //count += 1;
+           // if (count == 1)
+           // {
+           //   
+           MessageBox.Show(string.Format(" X = {0:0.0}  Y= {1:0.0}   Z = {2:0.0} ", cord3d[0],  cord3d[1], cord3d[2]));
+           //        
+           // }
+           // count = 0 ; 
             } 
       
 
@@ -164,7 +187,7 @@ namespace ClappingHands
         private void Kinect_SkeletonAllFramesReady(object source, AllFramesReadyEventArgs e)
         {
            
-           ColorImageFrame colorImageFrame = null;
+            ColorImageFrame colorImageFrame = null;
             DepthImageFrame depthImageFrame = null;
             SkeletonFrame skeletonFrame = null;
             
@@ -175,14 +198,15 @@ namespace ClappingHands
                 depthImageFrame = e.OpenDepthImageFrame();
                 skeletonFrame   = e.OpenSkeletonFrame();
 
-                if (DepthImageRadioButton.IsChecked.Value)
-                   image.Source = depthImageFrame.ToBitmapSource();
+                 if (DepthImageRadioButton.IsChecked.Value)
+                     image.Source = depthImageFrame.ToBitmapSource();
                
-                else
-                    if (ColorImageRadioButton.IsChecked.Value)
-                       image.Source = colorImageFrame.ToBitmapSource();
-                    else
-                      image.Source = null;
+                 else
+                     if (ColorImageRadioButton.IsChecked.Value)
+                         image.Source = colorImageFrame.ToBitmapSource();
+                     else
+
+                        image.Source = null;
                
                 
                
@@ -205,10 +229,11 @@ namespace ClappingHands
                     return;
                 }
 
-                myCanvas.Children.Clear(); 
-                recognitionEngine.Skeleton = firstSkeleton;
+                   myCanvas.Children.Clear(); 
+                   recognitionEngine.Skeleton = firstSkeleton;
+                     
                    GetArmCord();
-                   findAngles();
+                  // findAngles();
                    this.drawSkeleton(firstSkeleton, myCanvas, Colors.Chartreuse);
                    recognitionEngine.StartRecognise();
                   
@@ -311,18 +336,14 @@ namespace ClappingHands
             Line boneLine = new Line();
             boneLine.Stroke = new SolidColorBrush(color);
             boneLine.StrokeThickness = 5;
-           DepthImagePoint j1p = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(j1.Position, DepthImageFormat.Resolution640x480Fps30);
+            DepthImagePoint j1p = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(j1.Position, DepthImageFormat.Resolution640x480Fps30);
             //Rescale points to canvas size
-            boneLine.X1 = (double)j1p.X;
-                /// kinect.ColorStream.FrameWidth * canvas.Width;
-            boneLine.Y1 = (double)j1p.Y ;
-            /// kinect.ColorStream.FrameHeight * canvas.Height;
+            boneLine.X1 = (double)j1p.X / sensor.DepthStream.FrameWidth * myCanvas.Width ;
+            boneLine.Y1 = (double)j1p.Y / sensor.DepthStream.FrameHeight* myCanvas.Height;
             DepthImagePoint j2p = sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(j2.Position, DepthImageFormat.Resolution640x480Fps30);
-            boneLine.X2 = (double)j2p.X ;
-            /// kinect.ColorStream.FrameWidth * canvas.Width;
-            boneLine.Y2 = (double)j2p.Y;
-            /// kinect.ColorStream.FrameHeight * canvas.Height;
-            myCanvas.Children.Add(boneLine);
+            boneLine.X2 = (double)j2p.X / sensor.DepthStream.FrameWidth * myCanvas.Width ;
+            boneLine.Y2 = (double)j2p.Y / sensor.DepthStream.FrameHeight* myCanvas.Height;
+           // myCanvas.Children.Add(boneLine);
         }
 //        private Point ScalePosition(SkeletonPoint skeletonPoint)
 //        {

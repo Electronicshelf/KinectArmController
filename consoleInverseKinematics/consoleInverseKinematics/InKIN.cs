@@ -46,7 +46,7 @@ namespace consoleInverseKinematicsCalc
     }
 
     // base angle and radial distance from x,y coordinates 
-    double baseAngle = radTOdeg(Math.Atan2(x,y)) ;
+    double baseAngle = radTOdeg(Math.Atan2(x,y));
     
     double rdist = Math.Sqrt((x*x) + (y*y));
           // radial distance now treated as the y coordinate for the arm 
@@ -92,7 +92,7 @@ namespace consoleInverseKinematicsCalc
      // round angles to integers
          
       double baseAng =      (double)Math.Round(baseAngle) + 165 ;
-      double shoulderAng =  checkDirection((double)Math.Round(shoulderAngle));
+      double shoulderAng =  checkDirection((double)Math.Round(shoulderAngle) -60);
       double elbowAng =     checkDirection((double)Math.Round(elbowAngle));
       double wristAng =     checkDirection((double)Math.Round(wristAngle));
 

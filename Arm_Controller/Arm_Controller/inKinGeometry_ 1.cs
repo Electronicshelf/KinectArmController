@@ -34,12 +34,40 @@ namespace Arm_Controller
             return AngleTiter;
         }
 
-        public double[] calcIK(double x, double y, double z)
-        /* Use (x,y,z) coordinate to calculate the IK
-           angles for the base, elbow, shoulder and wrist joints. 
-        */
+        public double reScaleShoulder(double shls) 
+          {
+              shls =  ((Math.Abs(shls - 165) * 3) + shls);
+               if(shls > 270)
+                     {shls = 255;}
+              else 
+               if(shls < 158) 
+                      {shls = 165;}
+              return shls;
+          }
+        public double reScaleBase(double bas) 
+            {
+               bas = ((Math.Abs(bas - 160) * 6) + 75);
+                if (bas > 185)
+                { bas = 255; }
+                else
+                    if (bas < 158)
+                    {bas= 160; }
+                return bas;
+            }
+        public double reScaleElbow(double els)
         {
+            els = ((Math.Abs(165 - els) * 2) + 165);
+            if (els < 116)
+            { els = 255; }
+            else
+                if (els > 165)
+                { els = 165; }
+            return els;
+        }
 
+        public double[] calcIK(double x, double y, double z)
+       
+        {
             double extent2 = (x * x) + (y * y);
             double maxExtent = GRIPPER_LEN + LOWER_ARM + UPPER_ARM;
 
@@ -95,9 +123,15 @@ namespace Arm_Controller
             // round angles to integers
 
             double baseAng = (double)Math.Round(baseAngle) + 165;
-            double shoulderAng = checkDirection((double)Math.Round(shoulderAngle));
-            double elbowAng = checkDirection((double)Math.Round(elbowAngle));
-            double wristAng = checkDirection((double)Math.Round(wristAngle));
+            baseAng = reScaleBase(baseAng); 
+            //shldr is rescaled to arm ratings (self define working range)
+            double shoulderAng = checkDirection((double)Math.Round(shoulderAngle) - 60 );
+            shoulderAng = reScaleShoulder(shoulderAng);
+
+            double elbowAng =  checkDirection((double)Math.Round(elbowAngle));
+            elbowAng = reScaleBase(elbowAng);
+          
+            double wristAng =    checkDirection((double)Math.Round(wristAngle));
 
             double INIT = 7;
             double GriperDist = 160;

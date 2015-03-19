@@ -9,3 +9,4 @@ C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\Arm_Cont
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\Arm_Controller\Arm_Controller\bin\Debug\Arm_Controller.pdb
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\Arm_Controller\Arm_Controller\obj\Debug\Arm_Controller.dll
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\Arm_Controller\Arm_Controller\obj\Debug\Arm_Controller.pdb
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\Arm_Controller\Arm_Controller\obj\Debug\Arm_Controller.csprojResolveAssemblyReference.cache

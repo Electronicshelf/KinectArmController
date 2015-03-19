@@ -10,24 +10,24 @@ with only values of x,y&z; code is developed in C# (2014) Adapted from  Matlab B
 
 namespace consoleInverseKinematics
 {
-    class InvKin
+   public class InvKin
     {
 
-
+        
+    double  L0 = 2.20;
+    double  L1 = 2.20;
+    double L2 = 2.75;
+    double L3 = 2.75;
+    double L4 = 3.0;
+    
 
 //Math.Cos(10);
 //Math.Acos(4);
     public void invKin(double X, double Y, double Z ){
 
-    double L0,L1,L2,L3,L4;
-    L0 = 2.20;
-    L1 = 2.20;
-    L2 = 2.75;
-    L3 = 2.75;
-    L4 = 3.0;
-    Z -= (L0 + L1);
+    
 
-
+        Z -= (L0 + L1);
 
     double angB = 0, angS1, angS2, angE1 ,angE2, angW = 0;
   //Determine Base Angle

@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmBackward.cs" />
+    <Compile Include="ArmForward.cs" />
+    <Compile Include="ArmTriggerRight.cs" />
     <Compile Include="GestureBase.cs" />
     <Compile Include="GestureEventArgs.cs" />
     <Compile Include="equationBox.cs" />

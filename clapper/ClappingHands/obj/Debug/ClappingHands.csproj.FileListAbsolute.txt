@@ -15,6 +15,6 @@ C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\obj\Debug\ClappingHands.csproj.GenerateResource.Cache
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\obj\Debug\ClappingHands.exe
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\obj\Debug\ClappingHands.pdb
-C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\bin\Debug\Arm_Controller.dll
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\bin\Debug\Arm_Controller.pdb
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\obj\Debug\ClappingHands.csprojResolveAssemblyReference.cache
+C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\clapper\ClappingHands\bin\Debug\Arm_Controller.dll

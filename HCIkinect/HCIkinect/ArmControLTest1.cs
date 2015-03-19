@@ -21,34 +21,145 @@ namespace ArmController
     {
        string[] servoId = new string[6] { "INIT", "BASE", "SHLD", "ELBW", "WRST", "GRPR" };
         
-       double[] raMove = new double[6] { 7, 160, 165, 160, 165,160 };
+       double[] raMove = new double[6] { 7, 254, 140,220, 137, 85};
        int[] goMove = new int[6];
        int a = 10;
-      
-       
-      // public void armSet( SerialPort port)
-      // {
-      //     setArm(raMove, port , servoId);
-      // }
-        
-       public void armSet2()
+       SerialPort port = new SerialPort("COM16", 19200, Parity.None, 8, StopBits.One);
+
+       public void writeTofile(byte a)
        {
-           setArm2(raMove, servoId);
+
+           string filename = "baseAngle.txt";
+           TextWriter file = new StreamWriter(filename);
+           file.WriteLine(a);
+           file.Close();
        }
 
-       void count() { for (int e = 0; e < 5; e++)
-           Console.WriteLine(e);
+       public double readFile(double a)
+       {
+           string Filename = "baseAngle.txt";
+           TextReader fileRead = new StreamReader(Filename);
+           a = double.Parse(fileRead.ReadLine());
+           fileRead.Close();
+           return a;
        }
+    
+       byte[] rawBaseByteLeft = new byte[6];
+       double[] rawBaseLeft = new double[6] { 7, 75, 160, 250, 165, 160 };
+       
+       public byte moveBaseLeft(SerialPort port)
+       {
+                
+           for (int k = 0; k < 500; k++)
+           {
+               if (k == 1) { rawBaseLeft[1] = readFile(rawBaseLeft[1]); }
+
+               for (int u = 0; u < rawBaseLeft.Length; u++)
+               {
+                   double c = rawBaseByteLeft[1] + 30;
+                   byte d = convertToByte(c);
+                   rawBaseByteLeft[u] = convertToByte(rawBaseLeft[u]);
+
+                   if (rawBaseByteLeft[1] < d)
+                   {
+                       rawBaseByteLeft[1] += 1;
+                       port.Write(new byte[] { rawBaseByteLeft[u] }, 0, 1);
+                   }
+                   Console.WriteLine(" The value sent to >>>    {0}      BASEDECREASE  ", rawBaseByteLeft[u]);
+                  
+               }
+           }
+
+           rawBaseByteLeft[1] += 10;
+           writeTofile(rawBaseByteLeft[1]);
+           return rawBaseByteLeft[1];
+       }
+     
+
+       public void armSet2(SerialPort port)
+       {
+           setArm2(raMove, servoId,port);
+       }
+
+      
        public double forward(double fwd)
        {
 
            return fwd += 1;
 
        }
-			
-        public void setArm2(double[] raMove , string[] servoId)
-        {    
-             //SerialPort port, 
+       public byte convertToByte(double b) 
+            {
+            int D = Convert.ToInt32(b);
+            string G = D.ToString("X");
+            byte byt = byte.Parse(G, System.Globalization.NumberStyles.HexNumber);
+            return byt;
+             }
+       void count(int a) { for (a=0 ; a < 20; a++); }
+      
+        byte[] rawelbwByte;
+        double[] rawElbow;
+        public byte moveElbow(double a,double c, SerialPort port){
+        
+           for (int k = 0; k < 500; k++)
+           {
+               rawElbow = new double[6] { 7, a, 160, c, 190, 100 };
+               for (int u = 0; u < rawBase.Length; u++)
+               {  
+                   rawelbwByte = new byte[6];
+                   rawelbwByte[u] = convertToByte(rawBase[u]);
+                   count(20);
+                   //port.Write(new byte[] { rawelbwByte[u] }, 0, 1);
+                   Console.WriteLine(" The value sent to >>> {0}  ELBOW  ", rawelbwByte[u]);
+               }
+
+           }
+           return rawelbwByte[3];
+       }
+
+       double[] rawBase;
+       byte[] rawBaseByte;
+       public byte moveBase(double a,SerialPort port)
+       {
+           for (int k = 0; k < 100; k++)
+           {
+               rawBase = new double[6] { 7, a, 160, 165, 200, 150 };
+               for (int u = 0; u < rawBase.Length; u++)
+               {
+                   rawBaseByte = new byte[6];
+                   rawBaseByte[u] = convertToByte(rawBase[u]);
+                   count(20);
+                  // port.Write(new byte[] { rawBaseByte[u] }, 0, 1);
+                   Console.WriteLine(" The value sent to >>>    {0}      BASE  ", rawBaseByte[u]); 
+               }   
+           }
+           return rawBaseByte[1];
+       }
+       
+      
+       byte[] rawSldrByte;
+        public byte moveShoulder(double a,double b, double c, SerialPort port)
+       {
+           
+           for (int k= 0; k < 1000; k++)
+           {  
+               rawBase = new double[6] { 7, a, b, c, 200, 230 };
+               for (int u = 0; u < rawBase.Length; u++)
+               {
+                   rawSldrByte = new byte[6];
+                   rawSldrByte[u] =  convertToByte(rawBase[u]);
+                   count(20);
+                 //port.Write(new byte[] { rawSldrByte[u] }, 0, 1);
+                 Console.WriteLine(" The value sent to >>> {0}  SHOULDER  ", rawSldrByte[u]); 
+               }           
+           }
+
+           return rawSldrByte[2];
+       }
+      
+        public void setArm2(double[] raMove , string[] servoId, SerialPort port)
+        {
+            
            // string Command;
             string servo;
             //raMove = new byte[6];
@@ -62,48 +173,43 @@ namespace ArmController
             c = a.ToString("X");
             b = byte.Parse(c, System.Globalization.NumberStyles.HexNumber);
 
+            moveBaseLeft(port);
+           // moveBase(raMove[1], port);
+            //count(200);
+           // moveShoulder(raMove[1], raMove[2], raMove[3], port);
+           // count(20);
+           
             try
             {
+               // moveElbow(raMove[1], raMove[3], port);
                 
                //Send Data to Serial Port
-                int delay = 15;
+                int delay =200;
                for (int j = 0 ; j < delay ; j++)
                {
                    int g = 6;
+
                    for (int i = 0; i < g; i++)
                    {
  
                        servo = servoId[i];
                       // Command = string.Format(" {0} {1} ", servo, raMove[i]);
                        goMove[i] = Convert.ToInt32(raMove[i]);
-                       newAngles[i] =goMove[i].ToString("X");
+                      newAngles[i] =goMove[i].ToString("X");
                        
-                       // Console.WriteLine( "  hi {0}" ,newAngles[i]);     
+                       //
+                      // Console.WriteLine( "  hi {0}" ,newAngles[i]);     
                        PositionByte[i] = byte.Parse(newAngles[i], System.Globalization.NumberStyles.HexNumber);
                        //Send Control Serial Command
-                       //port.Write(new byte[] { PositionByte[i] }, 0, 1);
+                      // port.Write(new byte[] { PositionByte[i] }, 0, 1);
                        //Console.WriteLine(PositionByte[2]);
+                      
 
                        Console.WriteLine(" The value sent to >>> {0}  ", servo + " >>>> " + PositionByte[i]);
-                       count();
-                       if (i == 1 && raMove[1] < 254.0)
-                       {
-                           count();
-                          // raMove[1] += 1;
-                           forward(raMove[1]);
+                      // count();
 
-                       }
-                       if (i == 2 && raMove[2] < 253.0)
-                       {
-                           raMove[2] += 1;
-                           count();
-                       }
 
-                       if (i == 3 && raMove[3] < 253.0)
-                       {
-                           raMove[3] += 1;
-                           count();
-                       }
+                    
                    }
                }
                

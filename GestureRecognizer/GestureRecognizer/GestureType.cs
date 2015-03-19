@@ -12,8 +12,13 @@ namespace GestureRecognizer
         SwipeToRight,
         SwipeToLeft,
         ZoomIn,
+        ArmForward,
+        ArmBackward,
         ZoomOut,
+        ShoulderUp,
+        ShoulderDown,
         HandClapping,
-        TrackArm
+        ArmTriggerRight,
+        ArmTriggerLeft
     }
 }

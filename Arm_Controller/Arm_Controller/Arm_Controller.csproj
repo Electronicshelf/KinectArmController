@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArmController.cs" />
+    <Compile Include="baseControl.cs" />
     <Compile Include="forwardKin.cs" />
     <Compile Include="inKinGeometry_ 1.cs" />
     <Compile Include="InvKin_DH_2.cs" />
