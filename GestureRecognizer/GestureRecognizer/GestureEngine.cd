@@ -1,91 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="GestureRecognizer.GestureEventArgs">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="3" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GestureEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GestureRecognizer.GestureRecognitionEngine">
-    <Position X="5" Y="0.5" Width="1.5" />
+    <Position X="5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AkAAAAAQAAAABAEAAACAAAAAEAAAgAAAAAAIAAAAAAA=</HashCode>
       <FileName>GestureRecognitionEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GestureRecognizer.GestureBase" Collapsed="true">
-    <Position X="15.75" Y="0.5" Width="1.5" />
+  <Class Name="GestureRecognizer.GestureBase">
+    <Position X="14.75" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>CAAAEAAAABAYAAAAAACAAAAAAAAAAAAAAAAALAAAAAA=</HashCode>
       <FileName>GestureBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GestureRecognizer.ZoomInGesture">
-    <Position X="12" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAAAAAAAAAAAABAAACAA=</HashCode>
-      <FileName>ZoomInGesture.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GestureRecognizer.ZoomOutGesture">
-    <Position X="17.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAAAAAAAAAAAABAAACAA=</HashCode>
-      <FileName>ZoomOutGesture.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GestureRecognizer.SwipeToRightGesture">
-    <Position X="14" Y="1.75" Width="1.5" />
+    <Position X="13.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAEAAAAAAAAQABAAAAAA=</HashCode>
       <FileName>SwipeToRightGesture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GestureRecognizer.SwipeToLeftGesture">
-    <Position X="15.75" Y="1.75" Width="1.5" />
+    <Position X="18.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAEEAAAAAAAQABAAAAAA=</HashCode>
       <FileName>SwipeToLeftGesture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GestureRecognizer.ArmTriggerRight">
-    <Position X="19.25" Y="1.75" Width="1.5" />
+    <Position X="20" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAGAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAYAAAAAAAAAAAAAAAAAAAAAAAABAAACAA=</HashCode>
       <FileName>ArmTriggerRight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GestureRecognizer.ArmBackward">
-    <Position X="21" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQABAYAAAAAAAAAAAAAAAAAAAAAAAABBAAAAA=</HashCode>
-      <FileName>ArmBackward.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="GestureRecognizer.ArmForward">
-    <Position X="10.25" Y="1.75" Width="1.5" />
+    <Position X="10.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQABAYAAAAAAAAAAAAAAAAAAAAAAAABBAAAAA=</HashCode>
       <FileName>ArmForward.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="GestureRecognizer.Vector3">
-    <Position X="1" Y="0.5" Width="1.5" />
+    <Position X="0.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAYAUAAABACQAEAAAAAAAAAAAAYAE=</HashCode>
       <FileName>Vector3.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="GestureRecognizer.GestureType">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAIABAAAAAAAAAAAAAAAAABAAAKgAAkARAAAAAA=</HashCode>
       <FileName>GestureType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="GestureRecognizer.RecognitionResult">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAABA=</HashCode>
       <FileName>RecognitionResult.cs</FileName>

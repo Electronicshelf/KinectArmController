@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 //Development of the Inverse Kinematics Algorithm for the RA-01 robotic Arm to determine the four joint angles
-//with only values of x,y&z; code is developed in C# Osahor Uche  <ucheosahor@gmail.com>(2014).
+//with only values of x,y&z; code is developed in C# by Osahor Uche  <ucheosahor@gmail.com>(2014/2015).
 //Adapted from  "Inverse kinematics in Matlab By Olawale B. Akinwale(2009)" and "Controlling a Robot Arm in java by Andrew Davison, ad@fivedots.coe.psu.ac.th, June 2011 "
 
 namespace Arm_Controller
@@ -33,35 +33,45 @@ namespace Arm_Controller
             else AngleTiter = (AngleTiter + 90 - 165);
             return AngleTiter;
         }
-
+//rescalling is user defined, feel free to ignore the rescalling...
         public double reScaleShoulder(double shls) 
           {
               shls =  ((Math.Abs(shls - 165) * 3) + shls);
-               if(shls > 270)
+               if(shls > 250)
                      {shls = 255;}
               else 
                if(shls < 158) 
                       {shls = 165;}
               return shls;
           }
-        public double reScaleBase(double bas) 
+      // because of the kinect inaccuracy the base rescaling checks to make sure x cordinate stops at 0.6 for better results
+        
+        public double reScaleBase(double bas, double x) 
             {
-               bas = ((Math.Abs(bas - 160) * 6) + 75);
-                if (bas > 185)
-                { bas = 255; }
+               bas = ((Math.Abs(bas - 139) * 4) + 75);
+               if (bas < 137)
+               { bas = 75; }
                 else
-                    if (bas < 158)
-                    {bas= 160; }
+                    
+             if (bas > 190 && x > 0.6 )
+                { bas = 255; }
+               if (bas > 255) { bas = 255; }
                 return bas;
             }
         public double reScaleElbow(double els)
         {
-            els = ((Math.Abs(165 - els) * 2) + 165);
-            if (els < 116)
-            { els = 255; }
-            else
-                if (els > 165)
-                { els = 165; }
+            els = ((255 - Math.Round (Math.Abs(els - 114)) *1.77));
+                if (els < 120)
+                {
+                els = 255; 
+                }
+           // else
+           //     if (els > 160)
+           //     { 
+           //         els = 165;
+           //     }
+                if (els <= 170)
+                    els = 165;
             return els;
         }
 
@@ -123,20 +133,21 @@ namespace Arm_Controller
             // round angles to integers
 
             double baseAng = (double)Math.Round(baseAngle) + 165;
-            baseAng = reScaleBase(baseAng); 
+            double baseA = reScaleBase(baseAng,x); 
+           
             //shldr is rescaled to arm ratings (self define working range)
             double shoulderAng = checkDirection((double)Math.Round(shoulderAngle) - 60 );
-            shoulderAng = reScaleShoulder(shoulderAng);
+            double shoulderA = reScaleShoulder(shoulderAng);
 
             double elbowAng =  checkDirection((double)Math.Round(elbowAngle));
-            elbowAng = reScaleBase(elbowAng);
+            double elbowA = reScaleElbow(elbowAng);
           
             double wristAng =    checkDirection((double)Math.Round(wristAngle));
 
             double INIT = 7;
             double GriperDist = 160;
 
-            double[] angles = new double[] { INIT, baseAng, shoulderAng, elbowAng, wristAng, GriperDist};
+            double[] angles = new double[] { INIT, baseA, shoulderA, elbowA, wristAng, GriperDist};
             return angles;     
       
         }  

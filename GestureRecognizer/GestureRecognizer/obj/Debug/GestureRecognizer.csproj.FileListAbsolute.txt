@@ -2,4 +2,3 @@ C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\GestureR
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\GestureRecognizer\GestureRecognizer\bin\Debug\GestureRecognizer.pdb
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\GestureRecognizer\GestureRecognizer\obj\Debug\GestureRecognizer.dll
 C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\GestureRecognizer\GestureRecognizer\obj\Debug\GestureRecognizer.pdb
-C:\Users\Circuit\Documents\Visual Studio 2012\Projects\KinectControlHCI\GestureRecognizer\GestureRecognizer\obj\Debug\GestureRecognizer.csprojResolveAssemblyReference.cache

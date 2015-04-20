@@ -29,8 +29,8 @@ namespace GestureRecognizer
        {     
             this.gestureCollection = new List<GestureBase>();
             this.gestureCollection.Add(new ArmTriggerRight());
-            this.gestureCollection.Add(new ZoomInGesture());
-            this.gestureCollection.Add(new ZoomOutGesture());
+            //this.gestureCollection.Add(new ZoomInGesture());
+            //this.gestureCollection.Add(new ZoomOutGesture());
             this.gestureCollection.Add(new SwipeToRightGesture());
             this.gestureCollection.Add(new SwipeToLeftGesture());
         }

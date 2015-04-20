@@ -75,7 +75,7 @@ namespace ClappingHands
             recognitionEngine = new GestureRecognitionEngine();
             //readFile(raMove[1]);
             equation = new equationBox();
-            armEngine.setArm(raMove, port, servoId);
+            //armEngine.setArm(raMove, port, servoId);
             recognitionEngine.GestureRecognized += new EventHandler<GestureEventArgs>(recognitionEngine_GestureRecognized);
             this.sensor.Start();
             
@@ -112,7 +112,7 @@ namespace ClappingHands
                  {
                      a = 5;
                  }
-                                 cord3d = equation.HandXYZ(skel, a);
+                 cord3d = equation.HandXYZ(skel, a);
                  xAxes.Text = string.Format(" {0:0.0} ", cord3d[0]); yAxes.Text = string.Format(" {0:0.0} ", cord3d[1]); zAxes.Text = string.Format(" {0:0.0} ", cord3d[2]);
                  double[] raMove = armEngine.anglesINV_G(cord3d[0], cord3d[2], cord3d[1]);
                  iValue.Text = string.Format("{0:0} ", raMove[0]); bValue.Text = string.Format("{0:0} ", raMove[1]); sValue.Text = string.Format("{0:0} ", raMove[2]);
@@ -143,18 +143,18 @@ namespace ClappingHands
 
              switch (e.GestureType) 
              {
-                 case   (GestureType.SwipeToLeft):
-                     this.armEngine.baseDynamicLeft(raMove, port, servoId);
-                     break;
-                 case (GestureType.SwipeToRight):
-                     this.armEngine.baseDynamicRight(raMove, port, servoId);
-                     break;
-                 case (GestureType.ArmTriggerRight):
-                     MessageBox.Show("ArmTriggered");
-                     break;
-                 default:
-                     //this.armEngine.setArm(raMove, port, servoId);
-                     break;
+           //      case   (GestureType.SwipeToLeft):
+           //          this.armEngine.baseDynamicLeft(raMove, port, servoId);
+           //          break;
+           //      case (GestureType.SwipeToRight):
+           //          this.armEngine.baseDynamicRight(raMove, port, servoId);
+           //          break;
+              //  case (GestureType.ArmTriggerRight):
+                    // MessageBox.Show("ArmTriggered");
+                    // break;
+               //  default:
+           //          //this.armEngine.setArm(raMove, port, servoId);
+                //    break;
              }
 
             gestureList.Items.Add(e.GestureType.ToString());
